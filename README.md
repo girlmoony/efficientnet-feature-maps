@@ -72,6 +72,56 @@ Linux/macOSでは以降の `.\.venv\Scripts\python.exe` を `.venv/bin/python` �
 
 上の平均・標準偏差は設定方法の例です。自分の学習時の値を指定してください。
 
+## mean・stdの指定（省略時の動作）
+
+**学習・fine-tuning時と同じmean・stdを指定してください。モデル名だけによる自動切替はありません。**
+`--model efficientnet-lite0` と `--model efficientnet-lite1` のどちらでも、省略した引数には次の共通既定値を使用します。
+
+| 引数 | 省略時の値（Lite0 / Lite1共通） |
+|---|---|
+| `--mean` | `0.498 0.498 0.498` |
+| `--std` | `0.502 0.502 0.502` |
+
+この値は対応する公開実装に合わせた既定値です。**Lite0は常にImageNetのmean・std、Lite1は常に0.5、という仕様ではありません。** 正しい値はモデル構造ではなく、その重みを学習した際の前処理で決まります。保存したstate_dictだけから値を自動判定することはできません。学習コードや重みの配布元の設定を確認してください。
+
+処理は、画像の各画素を0〜1にした後、チャネルごとに次のように計算します。
+
+```text
+モデルへ渡す値 = (画素値 / 255 - mean) / std
+```
+
+### 例1：Lite1をmean・stdともに0.5で学習した場合
+
+```powershell
+.\.venv\Scripts\python.exe feature_maps.py --weights models/efficientnet_lite1.pth --image examples/cat.png --model efficientnet-lite1 --channel-order rgb --mean 0.5 0.5 0.5 --std 0.5 0.5 0.5 --output runs/lite1-mean05
+```
+
+この設定では、0〜255の画素値がおおむね-1〜1に変換されます。
+
+### 例2：Lite0をImageNetのRGB平均・標準偏差で学習した場合
+
+```powershell
+.\.venv\Scripts\python.exe feature_maps.py --weights models/efficientnet_lite0.pth --image examples/cat.png --model efficientnet-lite0 --channel-order rgb --mean 0.485 0.456 0.406 --std 0.229 0.224 0.225 --output runs/lite0-imagenet
+```
+
+上記2例は、**その設定で学習した重みに使う指定例**です。Lite0/Lite1の一般的な固定設定として使い分けるものではありません。
+
+### BGR入力の場合の並び順
+
+`--mean` と `--std` の3値は、`--channel-order` で指定したモデル入力と同じ順に指定します。
+例えばRGB順のmeanが `0.485 0.456 0.406`、stdが `0.229 0.224 0.225` なら、同じチャネル別の値をBGR順で指定すると次のようになります。
+
+```text
+--channel-order bgr --mean 0.406 0.456 0.485 --std 0.225 0.224 0.229
+```
+
+これは値の並べ方の例です。RGB学習モデルをそのままBGR入力で使ってよいという意味ではありません。入力の色順も学習時の設定に合わせてください。3チャネルすべて同じ0.5の場合は並べ替えても同じ値です。
+
+### 同梱の実測例に使った値
+
+`examples/lite1-rgb` の猫画像の結果は、**mean=`0.498 0.498 0.498`、std=`0.502 0.502 0.502`** で計算しています。0.5 / 0.5へ変更した結果ではありません。`metadata.json` に実際の設定を記録しています。
+学習時の値が異なる場合、既定値のままでは特徴マップや分類結果が変わるため、正しい値を指定して別の出力フォルダへ再実行してください。
+
 ## オプション
 
 | 引数 | 内容 | 既定値 |
