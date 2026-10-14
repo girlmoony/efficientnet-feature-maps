@@ -1,6 +1,6 @@
 # EfficientNet-Lite 特徴マップ可視化
 
-ローカルの `.pth` と画像を指定し、**実際の推論で得た特徴マップ**をPNGとオフラインHTMLで確認するPythonツールです。
+ローカルの `.pth` / `.pth.tar` などのPyTorchチェックポイントと画像を指定し、**実際の推論で得た特徴マップ**をPNGとオフラインHTMLで確認するPythonツールです。
 EfficientNet-Lite0 / Lite1、任意のクラス数、ラベルファイル、モデル入力のRGB/BGR、出力先を選択できます。模式図の生成や代替の学習済み重みのダウンロードは行いません。
 
 ## 実測例
@@ -23,7 +23,7 @@ EfficientNet-Lite0 / Lite1、任意のクラス数、ラベルファイル、モ
 - `efficientnet-lite0`：既定入力224×224、深さ係数1.0。
 - `efficientnet-lite1`：既定入力240×240、深さ係数1.1。
 - `fc.weight` からクラス数を取得します。凍結の有無にかかわらず、対応構造のfine-tuning済み重みを利用できます。
-- 生のstate_dict、`state_dict` / `model_state_dict` に格納されたチェックポイント、全キーに `module.` が付いたDataParallel形式を読み込めます。
+- 生のstate_dict、`state_dict` / `model_state_dict` / `model` に重み辞書を格納したチェックポイント、全キーに `module.` が付いたDataParallel形式を読み込めます。
 - `torch.load(..., weights_only=True)` と `load_state_dict(..., strict=True)` を使用。キーや形状が違う場合は停止します。モデルの自動置換・重みの部分読み込みはしません。
 - timm / torchvisionのキー形式、TorchScript、ONNX、モデルオブジェクトをpickle保存したファイルは対象外です。構造コードを含まないstate_dictなので、演算方式が同じでも別キー形式なら変換が必要です。
 - CPUで `eval()` と `inference_mode()` を使用。Dropoutは無効化し、BatchNormは保存済み統計量を使います。
@@ -126,7 +126,7 @@ Linux/macOSでは以降の `.\.venv\Scripts\python.exe` を `.venv/bin/python` �
 
 | 引数 | 内容 | 既定値 |
 |---|---|---|
-| `--weights` | `.pth` のパス | 必須 |
+| `--weights` | `.pth` / `.pth.tar` などのPyTorchチェックポイントのパス | 必須 |
 | `--image` | 入力画像のパス | 必須 |
 | `--labels` | TXTまたはJSONのクラス名 | 未指定なら `class_ID` |
 | `--model` | `efficientnet-lite0` / `efficientnet-lite1` | `efficientnet-lite1` |
@@ -148,6 +148,34 @@ Linux/macOSでは以降の `.\.venv\Scripts\python.exe` を `.venv/bin/python` �
 既定の前処理は、対応する[公開実装の評価コード](https://github.com/RangiLyu/EfficientNet-Lite/blob/main/train.py)に合わせています。画像のEXIF回転を適用し、RGBへ変換、BICUBIC補間、中央切り出し、0〜1変換、`(x-mean)/std` の順に処理します。元の学習条件は重みだけから特定できないため、必要に応じて変更してください。
 
 出力フォルダが空でない場合はエラーにします。再実行時は別の出力先を指定してください。
+
+## `.pth.tar` の読み込み
+
+**`.pth` だけでなく `.pth.tar` も、同じ `--weights` 引数で指定できます。** 拡張子ではなく `torch.load` で保存内容を読み込みます。PyTorchの新しいZIP形式と旧シリアライズ形式の両方をテストしています。
+
+```powershell
+.\.venv\Scripts\python.exe feature_maps.py --weights models/checkpoint.pth.tar --image examples/cat.png --model efficientnet-lite1 --channel-order rgb --mean 0.5 0.5 0.5 --std 0.5 0.5 0.5 --output runs/lite1-checkpoint
+```
+
+mean・stdは上記例を固定で使わず、学習時の設定に合わせてください。対応する保存内容は次のとおりです。
+
+```python
+# 生の重み辞書
+torch.save(model.state_dict(), "weights.pth.tar")
+
+# 学習チェックポイント（epochやoptimizerは可視化には使用しません）
+torch.save({
+    "epoch": 10,
+    "state_dict": model.state_dict(),
+    "optimizer": optimizer.state_dict(),
+}, "checkpoint.pth.tar")
+```
+
+重み辞書の格納キーは `state_dict`、`model_state_dict`、`model` に対応します。複数ある場合はこの順に採用します。`model` キーも値は**重みの辞書**である必要があり、モデルオブジェクトのpickle保存には対応しません。DataParallel由来の共通 `module.` 接頭辞は取り除きます。
+
+一般的なPyTorchの `.pth.tar` は、名前に `.tar` があってもtar圧縮ファイルではありません。独自に複数ファイルをまとめた実際のtarアーカイブは、このツールでは自動展開しません。モデル構造・重みキーの対応条件は `.pth` と共通です。チェックポイント内に任意の独自Pythonオブジェクトがある場合も、`weights_only=True` で読める内容に保存し直す必要があります。
+
+重みを誤ってコミットしないよう、`*.pth.tar` も `.gitignore` に含めています。
 
 ## ラベル形式
 
@@ -217,7 +245,7 @@ with np.load("runs/lite1-rgb/activations.npz", allow_pickle=False) as data:
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-テストではRGB/BGRと正規化、中央切り出し、TXT/JSONラベル、Lite0の保存・読み込み・推論、DataParallel形式、モデル種類の不一致、Conv出力を活性化で上書きしないことを確認します。Lite0のテスト重みは人工生成であり、分類品質を検証するものではありません。
+テストではRGB/BGRと正規化、中央切り出し、TXT/JSONラベル、Lite0の保存・読み込み・推論、DataParallel形式、モデル種類の不一致、Conv出力を活性化で上書きしないことを確認します。さらにLite0/Lite1の `.pth.tar` について、生の重み辞書と3種類の格納キー、新旧シリアライズ形式を読み込み、保存前後の推論出力が一致することを確認します。テスト用の重みは人工生成であり、分類品質を検証するものではありません。
 同梱のLite1猫画像の例は指定された実際の重みから生成しています。モデル本体・巨大なNPZ・実行環境はリポジトリに含めず、`.gitignore` で除外しています。
 
 ## 参照

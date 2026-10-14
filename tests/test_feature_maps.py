@@ -73,6 +73,35 @@ class FeatureMapTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             load_model(path, 'efficientnet-lite1')
 
+    def test_pth_tar_checkpoints_match_original_inference(self):
+        torch.set_num_threads(2)
+        # Both modern ZIP and legacy torch.save serialization, two variants,
+        # optimizer/epoch metadata, and common wrapper keys are covered.
+        cases = [('efficientnet-lite0', None, False, False),
+                 ('efficientnet-lite0', 'state_dict', True, True),
+                 ('efficientnet-lite1', 'model_state_dict', False, False),
+                 ('efficientnet-lite1', 'model', True, False)]
+        for variant, wrapper, modern, parallel in cases:
+            with self.subTest(variant=variant, wrapper=wrapper, modern=modern):
+                original = EfficientNetLite(variant, 3).eval()
+                weights = original.state_dict()
+                if parallel:
+                    weights = {'module.' + k: v for k, v in weights.items()}
+                checkpoint = weights if wrapper is None else {
+                    wrapper: weights, 'epoch': 17, 'optimizer': {'state': {}, 'param_groups': []}}
+                path = self.root / 'checkpoint.pth.tar'
+                torch.save(checkpoint, path, _use_new_zipfile_serialization=modern)
+                restored = load_model(path, variant)
+                tensor = torch.randn(1, 3, 64, 64)
+                with torch.inference_mode():
+                    torch.testing.assert_close(restored(tensor), original(tensor), rtol=0, atol=0)
+
+    def test_rejects_checkpoint_without_tensor_state_dict(self):
+        path = self.root / 'invalid.pth.tar'
+        torch.save({'epoch': 1, 'optimizer': {}}, path)
+        with self.assertRaisesRegex(ValueError, 'Expected tensor weights'):
+            load_model(path, 'efficientnet-lite1')
+
 
 if __name__ == '__main__':
     unittest.main()

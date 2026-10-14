@@ -78,15 +78,20 @@ class EfficientNetLite(nn.Module):
 
 
 def load_model(path, variant):
+    # torch.save files can be named .pth, .pth.tar, .pt, etc.; do not infer
+    # serialization format from the filename. .pth.tar is usually not a tar archive.
     state = torch.load(path, map_location='cpu', weights_only=True)
     if not isinstance(state, dict):
         raise ValueError('Checkpoint must contain a state_dict, not a pickled model object.')
-    for key in ('state_dict', 'model_state_dict'):
+    for key in ('state_dict', 'model_state_dict', 'model'):
         if key in state:
             state = state[key]
             break
     if not isinstance(state, dict) or not state:
         raise ValueError('Empty or invalid state_dict.')
+    if not all(isinstance(k, str) and isinstance(v, torch.Tensor) for k, v in state.items()):
+        raise ValueError('Expected tensor weights in a raw state_dict or under '
+                         'state_dict, model_state_dict, or model. Model objects are unsupported.')
     if all(k.startswith('module.') for k in state):
         state = {k[7:]: v for k, v in state.items()}
     if 'fc.weight' not in state or state['fc.weight'].ndim != 2:
@@ -282,7 +287,7 @@ def positive_int(value):
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--weights', type=Path, required=True, help='Local .pth state_dict')
+    parser.add_argument('--weights', type=Path, required=True, help='Local PyTorch checkpoint (.pth / .pth.tar / .pt)')
     parser.add_argument('--image', type=Path, required=True, help='PNG/JPEG etc. decoded with Pillow')
     parser.add_argument('--labels', type=Path, help='UTF-8 TXT (one label per line) or JSON list / ID-to-name object')
     parser.add_argument('--model', choices=VARIANTS, default='efficientnet-lite1')
