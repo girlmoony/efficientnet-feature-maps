@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.npz
+runs/
+.pytest_cache/
+tests/tmp*/

@@ -1,0 +1,3394 @@
+{
+  "model": "efficientnet-lite1",
+  "weights_file": "efficientnet_lite1.pth",
+  "weights_sha256": "09a71e5bc3b3ac893d452b5ef3f9b5444646f56355574e5befdb38a90baa98cb",
+  "image_file": "cat.png",
+  "image_sha256": "134cd208275c75ade29678def97b6182bb8be455cc3443d2b192fc3b27595c35",
+  "labels_file": null,
+  "labels_sha256": null,
+  "preprocessing": {
+    "size": 240,
+    "resize_mode": "eval",
+    "eval_resize_short_side": 272,
+    "channel_order": "rgb",
+    "mean": [
+      0.498,
+      0.498,
+      0.498
+    ],
+    "std": [
+      0.502,
+      0.502,
+      0.502
+    ],
+    "interpolation": "Pillow BICUBIC"
+  },
+  "inference": {
+    "mode": "eval",
+    "device": "cpu",
+    "strict_load": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "all_finite": true
+  },
+  "versions": {
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.4",
+    "pillow": "12.3.0"
+  },
+  "num_classes": 1000,
+  "scope": "all",
+  "layers": [
+    {
+      "name": "stem.0",
+      "shape_chw": [
+        32,
+        120,
+        120
+      ],
+      "channels": [
+        8,
+        19,
+        29,
+        1,
+        15,
+        11,
+        4,
+        18
+      ],
+      "file": "feature_maps/layer_000.png",
+      "min": -10.915412902832031,
+      "max": 12.704197883605957
+    },
+    {
+      "name": "stem.1",
+      "shape_chw": [
+        32,
+        120,
+        120
+      ],
+      "channels": [
+        5,
+        20,
+        14,
+        6,
+        17,
+        4,
+        22,
+        31
+      ],
+      "file": "feature_maps/layer_001.png",
+      "min": -38.12577819824219,
+      "max": 40.827266693115234
+    },
+    {
+      "name": "Stem",
+      "shape_chw": [
+        32,
+        120,
+        120
+      ],
+      "channels": [
+        20,
+        6,
+        17,
+        8,
+        1,
+        29,
+        31,
+        22
+      ],
+      "file": "feature_maps/layer_002.png",
+      "min": 0.0,
+      "max": 6.0
+    },
+    {
+      "name": "blocks.0.0._depthwise_conv",
+      "shape_chw": [
+        32,
+        120,
+        120
+      ],
+      "channels": [
+        8,
+        1,
+        17,
+        20,
+        10,
+        6,
+        19,
+        22
+      ],
+      "file": "feature_maps/layer_003.png",
+      "min": -19.773345947265625,
+      "max": 28.25647735595703
+    },
+    {
+      "name": "blocks.0.0._bn1",
+      "shape_chw": [
+        32,
+        120,
+        120
+      ],
+      "channels": [
+        8,
+        1,
+        16,
+        10,
+        19,
+        6,
+        7,
+        17
+      ],
+      "file": "feature_maps/layer_004.png",
+      "min": -54.83185958862305,
+      "max": 92.32554626464844
+    },
+    {
+      "name": "blocks.0.0._project_conv",
+      "shape_chw": [
+        16,
+        120,
+        120
+      ],
+      "channels": [
+        5,
+        12,
+        9,
+        7,
+        2,
+        1,
+        11,
+        13
+      ],
+      "file": "feature_maps/layer_005.png",
+      "min": -21.678455352783203,
+      "max": 27.6201114654541
+    },
+    {
+      "name": "blocks.0.0._bn2",
+      "shape_chw": [
+        16,
+        120,
+        120
+      ],
+      "channels": [
+        9,
+        5,
+        12,
+        7,
+        15,
+        2,
+        13,
+        1
+      ],
+      "file": "feature_maps/layer_006.png",
+      "min": -31.58832550048828,
+      "max": 33.316993713378906
+    },
+    {
+      "name": "blocks.0.0",
+      "shape_chw": [
+        16,
+        120,
+        120
+      ],
+      "channels": [
+        9,
+        5,
+        12,
+        7,
+        15,
+        2,
+        13,
+        1
+      ],
+      "file": "feature_maps/layer_007.png",
+      "min": -31.58832550048828,
+      "max": 33.316993713378906
+    },
+    {
+      "name": "Stage 1",
+      "shape_chw": [
+        16,
+        120,
+        120
+      ],
+      "channels": [
+        9,
+        5,
+        12,
+        7,
+        15,
+        2,
+        13,
+        1
+      ],
+      "file": "feature_maps/layer_008.png",
+      "min": -31.58832550048828,
+      "max": 33.316993713378906
+    },
+    {
+      "name": "blocks.1.0._expand_conv",
+      "shape_chw": [
+        96,
+        120,
+        120
+      ],
+      "channels": [
+        63,
+        47,
+        54,
+        58,
+        12,
+        7,
+        21,
+        24
+      ],
+      "file": "feature_maps/layer_009.png",
+      "min": -73.99575805664062,
+      "max": 61.597877502441406
+    },
+    {
+      "name": "blocks.1.0._bn0",
+      "shape_chw": [
+        96,
+        120,
+        120
+      ],
+      "channels": [
+        91,
+        54,
+        60,
+        64,
+        90,
+        83,
+        70,
+        82
+      ],
+      "file": "feature_maps/layer_010.png",
+      "min": -18.456981658935547,
+      "max": 21.484031677246094
+    },
+    {
+      "name": "blocks.1.0._depthwise_conv",
+      "shape_chw": [
+        96,
+        60,
+        60
+      ],
+      "channels": [
+        54,
+        86,
+        60,
+        91,
+        21,
+        83,
+        26,
+        47
+      ],
+      "file": "feature_maps/layer_011.png",
+      "min": -12.022764205932617,
+      "max": 12.533647537231445
+    },
+    {
+      "name": "blocks.1.0._bn1",
+      "shape_chw": [
+        96,
+        60,
+        60
+      ],
+      "channels": [
+        56,
+        34,
+        47,
+        54,
+        0,
+        57,
+        49,
+        82
+      ],
+      "file": "feature_maps/layer_012.png",
+      "min": -8.794473648071289,
+      "max": 10.37852668762207
+    },
+    {
+      "name": "blocks.1.0._project_conv",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        3,
+        23,
+        15,
+        13,
+        22,
+        8,
+        19,
+        0
+      ],
+      "file": "feature_maps/layer_013.png",
+      "min": -28.600582122802734,
+      "max": 17.224445343017578
+    },
+    {
+      "name": "blocks.1.0._bn2",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        3,
+        23,
+        17,
+        13,
+        22,
+        9,
+        16,
+        19
+      ],
+      "file": "feature_maps/layer_014.png",
+      "min": -65.76809692382812,
+      "max": 45.08559799194336
+    },
+    {
+      "name": "blocks.1.0",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        3,
+        23,
+        17,
+        13,
+        22,
+        9,
+        16,
+        19
+      ],
+      "file": "feature_maps/layer_015.png",
+      "min": -65.76809692382812,
+      "max": 45.08559799194336
+    },
+    {
+      "name": "blocks.1.1._expand_conv",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        48,
+        141,
+        118,
+        95,
+        80,
+        92,
+        66,
+        41
+      ],
+      "file": "feature_maps/layer_016.png",
+      "min": -81.86477661132812,
+      "max": 83.8127212524414
+    },
+    {
+      "name": "blocks.1.1._bn0",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        128,
+        32,
+        41,
+        116,
+        82,
+        69,
+        141,
+        57
+      ],
+      "file": "feature_maps/layer_017.png",
+      "min": -20.0970516204834,
+      "max": 18.761857986450195
+    },
+    {
+      "name": "blocks.1.1._depthwise_conv",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        32,
+        128,
+        10,
+        57,
+        111,
+        46,
+        108,
+        114
+      ],
+      "file": "feature_maps/layer_018.png",
+      "min": -7.21373987197876,
+      "max": 5.050189018249512
+    },
+    {
+      "name": "blocks.1.1._bn1",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        32,
+        72,
+        73,
+        16,
+        89,
+        108,
+        22,
+        133
+      ],
+      "file": "feature_maps/layer_019.png",
+      "min": -18.155698776245117,
+      "max": 22.279094696044922
+    },
+    {
+      "name": "blocks.1.1._project_conv",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        7,
+        12,
+        10,
+        15,
+        9,
+        19,
+        0,
+        14
+      ],
+      "file": "feature_maps/layer_020.png",
+      "min": -12.313227653503418,
+      "max": 14.243101119995117
+    },
+    {
+      "name": "blocks.1.1._bn2",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        7,
+        10,
+        20,
+        18,
+        0,
+        9,
+        4,
+        12
+      ],
+      "file": "feature_maps/layer_021.png",
+      "min": -27.431068420410156,
+      "max": 42.18168258666992
+    },
+    {
+      "name": "blocks.1.1",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        3,
+        23,
+        22,
+        17,
+        19,
+        18,
+        15,
+        11
+      ],
+      "file": "feature_maps/layer_022.png",
+      "min": -69.60353088378906,
+      "max": 53.25994110107422
+    },
+    {
+      "name": "blocks.1.2._expand_conv",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        6,
+        39,
+        95,
+        136,
+        49,
+        129,
+        68,
+        75
+      ],
+      "file": "feature_maps/layer_023.png",
+      "min": -65.41437530517578,
+      "max": 72.31714630126953
+    },
+    {
+      "name": "blocks.1.2._bn0",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        141,
+        21,
+        64,
+        62,
+        12,
+        34,
+        114,
+        137
+      ],
+      "file": "feature_maps/layer_024.png",
+      "min": -23.81622314453125,
+      "max": 21.62609100341797
+    },
+    {
+      "name": "blocks.1.2._depthwise_conv",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        34,
+        92,
+        21,
+        118,
+        141,
+        64,
+        120,
+        114
+      ],
+      "file": "feature_maps/layer_025.png",
+      "min": -9.1146879196167,
+      "max": 4.498207092285156
+    },
+    {
+      "name": "blocks.1.2._bn1",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        64,
+        12,
+        21,
+        67,
+        143,
+        115,
+        34,
+        0
+      ],
+      "file": "feature_maps/layer_026.png",
+      "min": -16.597131729125977,
+      "max": 7.954204082489014
+    },
+    {
+      "name": "blocks.1.2._project_conv",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        7,
+        4,
+        14,
+        10,
+        20,
+        17,
+        11,
+        3
+      ],
+      "file": "feature_maps/layer_027.png",
+      "min": -9.80798625946045,
+      "max": 8.524059295654297
+    },
+    {
+      "name": "blocks.1.2._bn2",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        7,
+        10,
+        20,
+        4,
+        17,
+        18,
+        14,
+        9
+      ],
+      "file": "feature_maps/layer_028.png",
+      "min": -22.898513793945312,
+      "max": 39.02134704589844
+    },
+    {
+      "name": "blocks.1.2",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        3,
+        7,
+        18,
+        23,
+        17,
+        19,
+        22,
+        11
+      ],
+      "file": "feature_maps/layer_029.png",
+      "min": -66.75501251220703,
+      "max": 76.76446533203125
+    },
+    {
+      "name": "Stage 2",
+      "shape_chw": [
+        24,
+        60,
+        60
+      ],
+      "channels": [
+        3,
+        7,
+        18,
+        23,
+        17,
+        19,
+        22,
+        11
+      ],
+      "file": "feature_maps/layer_030.png",
+      "min": -66.75501251220703,
+      "max": 76.76446533203125
+    },
+    {
+      "name": "blocks.2.0._expand_conv",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        26,
+        113,
+        132,
+        32,
+        131,
+        46,
+        105,
+        107
+      ],
+      "file": "feature_maps/layer_031.png",
+      "min": -137.11709594726562,
+      "max": 129.51766967773438
+    },
+    {
+      "name": "blocks.2.0._bn0",
+      "shape_chw": [
+        144,
+        60,
+        60
+      ],
+      "channels": [
+        46,
+        10,
+        96,
+        114,
+        1,
+        60,
+        28,
+        131
+      ],
+      "file": "feature_maps/layer_032.png",
+      "min": -20.087356567382812,
+      "max": 31.763484954833984
+    },
+    {
+      "name": "blocks.2.0._depthwise_conv",
+      "shape_chw": [
+        144,
+        30,
+        30
+      ],
+      "channels": [
+        6,
+        94,
+        96,
+        51,
+        10,
+        117,
+        38,
+        100
+      ],
+      "file": "feature_maps/layer_033.png",
+      "min": -14.070467948913574,
+      "max": 13.827963829040527
+    },
+    {
+      "name": "blocks.2.0._bn1",
+      "shape_chw": [
+        144,
+        30,
+        30
+      ],
+      "channels": [
+        10,
+        96,
+        6,
+        94,
+        31,
+        44,
+        61,
+        37
+      ],
+      "file": "feature_maps/layer_034.png",
+      "min": -13.418862342834473,
+      "max": 13.317273139953613
+    },
+    {
+      "name": "blocks.2.0._project_conv",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        34,
+        28,
+        16,
+        37,
+        5,
+        8,
+        27,
+        23
+      ],
+      "file": "feature_maps/layer_035.png",
+      "min": -18.461923599243164,
+      "max": 21.399322509765625
+    },
+    {
+      "name": "blocks.2.0._bn2",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        34,
+        16,
+        8,
+        39,
+        5,
+        28,
+        31,
+        37
+      ],
+      "file": "feature_maps/layer_036.png",
+      "min": -34.8412971496582,
+      "max": 33.36597442626953
+    },
+    {
+      "name": "blocks.2.0",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        34,
+        16,
+        8,
+        39,
+        5,
+        28,
+        31,
+        37
+      ],
+      "file": "feature_maps/layer_037.png",
+      "min": -34.8412971496582,
+      "max": 33.36597442626953
+    },
+    {
+      "name": "blocks.2.1._expand_conv",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        233,
+        195,
+        183,
+        188,
+        137,
+        177,
+        229,
+        143
+      ],
+      "file": "feature_maps/layer_038.png",
+      "min": -37.811920166015625,
+      "max": 32.984920501708984
+    },
+    {
+      "name": "blocks.2.1._bn0",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        73,
+        44,
+        177,
+        14,
+        231,
+        0,
+        219,
+        20
+      ],
+      "file": "feature_maps/layer_039.png",
+      "min": -12.46939754486084,
+      "max": 15.626518249511719
+    },
+    {
+      "name": "blocks.2.1._depthwise_conv",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        0,
+        73,
+        210,
+        14,
+        86,
+        171,
+        58,
+        96
+      ],
+      "file": "feature_maps/layer_040.png",
+      "min": -9.295343399047852,
+      "max": 5.112859725952148
+    },
+    {
+      "name": "blocks.2.1._bn1",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        0,
+        73,
+        144,
+        3,
+        189,
+        14,
+        134,
+        52
+      ],
+      "file": "feature_maps/layer_041.png",
+      "min": -17.877296447753906,
+      "max": 7.892338275909424
+    },
+    {
+      "name": "blocks.2.1._project_conv",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        9,
+        18,
+        2,
+        34,
+        15,
+        14,
+        31,
+        33
+      ],
+      "file": "feature_maps/layer_042.png",
+      "min": -8.794698715209961,
+      "max": 7.324774742126465
+    },
+    {
+      "name": "blocks.2.1._bn2",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        18,
+        15,
+        9,
+        2,
+        33,
+        31,
+        22,
+        35
+      ],
+      "file": "feature_maps/layer_043.png",
+      "min": -23.434654235839844,
+      "max": 22.998294830322266
+    },
+    {
+      "name": "blocks.2.1",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        34,
+        31,
+        9,
+        5,
+        16,
+        8,
+        39,
+        37
+      ],
+      "file": "feature_maps/layer_044.png",
+      "min": -40.59466552734375,
+      "max": 41.4813232421875
+    },
+    {
+      "name": "blocks.2.2._expand_conv",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        138,
+        112,
+        2,
+        92,
+        54,
+        73,
+        215,
+        131
+      ],
+      "file": "feature_maps/layer_045.png",
+      "min": -50.4818115234375,
+      "max": 40.653175354003906
+    },
+    {
+      "name": "blocks.2.2._bn0",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        53,
+        97,
+        144,
+        29,
+        2,
+        170,
+        90,
+        237
+      ],
+      "file": "feature_maps/layer_046.png",
+      "min": -10.2913236618042,
+      "max": 17.3923397064209
+    },
+    {
+      "name": "blocks.2.2._depthwise_conv",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        143,
+        53,
+        97,
+        138,
+        144,
+        175,
+        196,
+        208
+      ],
+      "file": "feature_maps/layer_047.png",
+      "min": -10.191542625427246,
+      "max": 4.95562219619751
+    },
+    {
+      "name": "blocks.2.2._bn1",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        97,
+        143,
+        219,
+        175,
+        137,
+        53,
+        90,
+        4
+      ],
+      "file": "feature_maps/layer_048.png",
+      "min": -19.807119369506836,
+      "max": 10.897231101989746
+    },
+    {
+      "name": "blocks.2.2._project_conv",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        15,
+        2,
+        26,
+        9,
+        33,
+        18,
+        35,
+        7
+      ],
+      "file": "feature_maps/layer_049.png",
+      "min": -5.082858085632324,
+      "max": 6.984172821044922
+    },
+    {
+      "name": "blocks.2.2._bn2",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        15,
+        2,
+        18,
+        33,
+        26,
+        9,
+        31,
+        22
+      ],
+      "file": "feature_maps/layer_050.png",
+      "min": -18.028148651123047,
+      "max": 28.232887268066406
+    },
+    {
+      "name": "blocks.2.2",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        9,
+        34,
+        31,
+        5,
+        2,
+        18,
+        8,
+        16
+      ],
+      "file": "feature_maps/layer_051.png",
+      "min": -41.54786682128906,
+      "max": 52.07596206665039
+    },
+    {
+      "name": "Stage 3",
+      "shape_chw": [
+        40,
+        30,
+        30
+      ],
+      "channels": [
+        9,
+        34,
+        31,
+        5,
+        2,
+        18,
+        8,
+        16
+      ],
+      "file": "feature_maps/layer_052.png",
+      "min": -41.54786682128906,
+      "max": 52.07596206665039
+    },
+    {
+      "name": "blocks.3.0._expand_conv",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        45,
+        136,
+        209,
+        71,
+        116,
+        84,
+        29,
+        64
+      ],
+      "file": "feature_maps/layer_053.png",
+      "min": -78.68516540527344,
+      "max": 76.45381927490234
+    },
+    {
+      "name": "blocks.3.0._bn0",
+      "shape_chw": [
+        240,
+        30,
+        30
+      ],
+      "channels": [
+        69,
+        7,
+        203,
+        204,
+        79,
+        2,
+        128,
+        102
+      ],
+      "file": "feature_maps/layer_054.png",
+      "min": -10.603833198547363,
+      "max": 13.868749618530273
+    },
+    {
+      "name": "blocks.3.0._depthwise_conv",
+      "shape_chw": [
+        240,
+        15,
+        15
+      ],
+      "channels": [
+        204,
+        79,
+        152,
+        151,
+        115,
+        105,
+        16,
+        69
+      ],
+      "file": "feature_maps/layer_055.png",
+      "min": -10.312407493591309,
+      "max": 6.161841869354248
+    },
+    {
+      "name": "blocks.3.0._bn1",
+      "shape_chw": [
+        240,
+        15,
+        15
+      ],
+      "channels": [
+        203,
+        69,
+        105,
+        65,
+        2,
+        113,
+        110,
+        128
+      ],
+      "file": "feature_maps/layer_056.png",
+      "min": -12.373226165771484,
+      "max": 8.566984176635742
+    },
+    {
+      "name": "blocks.3.0._project_conv",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        49,
+        31,
+        25,
+        54,
+        19,
+        28,
+        16
+      ],
+      "file": "feature_maps/layer_057.png",
+      "min": -18.0299015045166,
+      "max": 24.019489288330078
+    },
+    {
+      "name": "blocks.3.0._bn2",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        31,
+        25,
+        16,
+        19,
+        38,
+        49,
+        12
+      ],
+      "file": "feature_maps/layer_058.png",
+      "min": -29.418872833251953,
+      "max": 23.037343978881836
+    },
+    {
+      "name": "blocks.3.0",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        31,
+        25,
+        16,
+        19,
+        38,
+        49,
+        12
+      ],
+      "file": "feature_maps/layer_059.png",
+      "min": -29.418872833251953,
+      "max": 23.037343978881836
+    },
+    {
+      "name": "blocks.3.1._expand_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        478,
+        76,
+        349,
+        57,
+        64,
+        270,
+        237,
+        122
+      ],
+      "file": "feature_maps/layer_060.png",
+      "min": -25.59773063659668,
+      "max": 33.0639533996582
+    },
+    {
+      "name": "blocks.3.1._bn0",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        108,
+        321,
+        104,
+        402,
+        247,
+        414,
+        389,
+        440
+      ],
+      "file": "feature_maps/layer_061.png",
+      "min": -9.259700775146484,
+      "max": 9.21064567565918
+    },
+    {
+      "name": "blocks.3.1._depthwise_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        247,
+        446,
+        282,
+        104,
+        320,
+        57,
+        275,
+        147
+      ],
+      "file": "feature_maps/layer_062.png",
+      "min": -3.033137321472168,
+      "max": 2.8312971591949463
+    },
+    {
+      "name": "blocks.3.1._bn1",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        270,
+        282,
+        247,
+        357,
+        104,
+        57,
+        336,
+        147
+      ],
+      "file": "feature_maps/layer_063.png",
+      "min": -12.59167194366455,
+      "max": 8.845367431640625
+    },
+    {
+      "name": "blocks.3.1._project_conv",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        6,
+        1,
+        58,
+        42,
+        43,
+        7,
+        36,
+        17
+      ],
+      "file": "feature_maps/layer_064.png",
+      "min": -5.662105560302734,
+      "max": 5.503064155578613
+    },
+    {
+      "name": "blocks.3.1._bn2",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        1,
+        6,
+        42,
+        43,
+        58,
+        55,
+        36,
+        32
+      ],
+      "file": "feature_maps/layer_065.png",
+      "min": -14.77245807647705,
+      "max": 13.043159484863281
+    },
+    {
+      "name": "blocks.3.1",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        31,
+        25,
+        19,
+        16,
+        51,
+        49,
+        38
+      ],
+      "file": "feature_maps/layer_066.png",
+      "min": -28.216970443725586,
+      "max": 24.34444236755371
+    },
+    {
+      "name": "blocks.3.2._expand_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        274,
+        101,
+        457,
+        36,
+        471,
+        320,
+        54,
+        156
+      ],
+      "file": "feature_maps/layer_067.png",
+      "min": -35.217750549316406,
+      "max": 31.97512435913086
+    },
+    {
+      "name": "blocks.3.2._bn0",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        101,
+        245,
+        176,
+        400,
+        232,
+        471,
+        470,
+        444
+      ],
+      "file": "feature_maps/layer_068.png",
+      "min": -8.144062995910645,
+      "max": 6.663698196411133
+    },
+    {
+      "name": "blocks.3.2._depthwise_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        101,
+        43,
+        410,
+        288,
+        12,
+        430,
+        45,
+        96
+      ],
+      "file": "feature_maps/layer_069.png",
+      "min": -4.993521213531494,
+      "max": 2.0370209217071533
+    },
+    {
+      "name": "blocks.3.2._bn1",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        12,
+        101,
+        430,
+        85,
+        410,
+        253,
+        288,
+        202
+      ],
+      "file": "feature_maps/layer_070.png",
+      "min": -10.785848617553711,
+      "max": 6.508150577545166
+    },
+    {
+      "name": "blocks.3.2._project_conv",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        42,
+        1,
+        32,
+        6,
+        43,
+        29,
+        36,
+        58
+      ],
+      "file": "feature_maps/layer_071.png",
+      "min": -3.9296131134033203,
+      "max": 4.01981782913208
+    },
+    {
+      "name": "blocks.3.2._bn2",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        1,
+        42,
+        6,
+        32,
+        43,
+        29,
+        27,
+        58
+      ],
+      "file": "feature_maps/layer_072.png",
+      "min": -12.719972610473633,
+      "max": 11.101211547851562
+    },
+    {
+      "name": "blocks.3.2",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        31,
+        25,
+        6,
+        19,
+        51,
+        49,
+        16
+      ],
+      "file": "feature_maps/layer_073.png",
+      "min": -27.325925827026367,
+      "max": 25.298917770385742
+    },
+    {
+      "name": "blocks.3.3._expand_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        126,
+        268,
+        321,
+        108,
+        446,
+        138,
+        298,
+        164
+      ],
+      "file": "feature_maps/layer_074.png",
+      "min": -39.94529724121094,
+      "max": 29.826860427856445
+    },
+    {
+      "name": "blocks.3.3._bn0",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        141,
+        172,
+        154,
+        138,
+        290,
+        151,
+        453,
+        379
+      ],
+      "file": "feature_maps/layer_075.png",
+      "min": -7.647792816162109,
+      "max": 9.300241470336914
+    },
+    {
+      "name": "blocks.3.3._depthwise_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        138,
+        321,
+        446,
+        31,
+        163,
+        288,
+        44,
+        440
+      ],
+      "file": "feature_maps/layer_076.png",
+      "min": -5.7491984367370605,
+      "max": 1.9730684757232666
+    },
+    {
+      "name": "blocks.3.3._bn1",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        321,
+        164,
+        138,
+        169,
+        437,
+        307,
+        163,
+        375
+      ],
+      "file": "feature_maps/layer_077.png",
+      "min": -9.211231231689453,
+      "max": 9.011723518371582
+    },
+    {
+      "name": "blocks.3.3._project_conv",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        59,
+        32,
+        42,
+        29,
+        72,
+        36,
+        6,
+        52
+      ],
+      "file": "feature_maps/layer_078.png",
+      "min": -2.830531120300293,
+      "max": 3.367070198059082
+    },
+    {
+      "name": "blocks.3.3._bn2",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        1,
+        29,
+        42,
+        27,
+        6,
+        72,
+        36,
+        32
+      ],
+      "file": "feature_maps/layer_079.png",
+      "min": -8.723282814025879,
+      "max": 7.82798433303833
+    },
+    {
+      "name": "blocks.3.3",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        31,
+        25,
+        29,
+        19,
+        6,
+        51,
+        49
+      ],
+      "file": "feature_maps/layer_080.png",
+      "min": -29.360164642333984,
+      "max": 26.04853057861328
+    },
+    {
+      "name": "Stage 4",
+      "shape_chw": [
+        80,
+        15,
+        15
+      ],
+      "channels": [
+        48,
+        31,
+        25,
+        29,
+        19,
+        6,
+        51,
+        49
+      ],
+      "file": "feature_maps/layer_081.png",
+      "min": -29.360164642333984,
+      "max": 26.04853057861328
+    },
+    {
+      "name": "blocks.4.0._expand_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        118,
+        127,
+        41,
+        200,
+        195,
+        232,
+        223,
+        339
+      ],
+      "file": "feature_maps/layer_082.png",
+      "min": -56.78009033203125,
+      "max": 72.75955963134766
+    },
+    {
+      "name": "blocks.4.0._bn0",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        106,
+        223,
+        383,
+        354,
+        3,
+        173,
+        195,
+        442
+      ],
+      "file": "feature_maps/layer_083.png",
+      "min": -8.142531394958496,
+      "max": 16.948678970336914
+    },
+    {
+      "name": "blocks.4.0._depthwise_conv",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        117,
+        354,
+        216,
+        437,
+        155,
+        463,
+        263,
+        192
+      ],
+      "file": "feature_maps/layer_084.png",
+      "min": -12.941217422485352,
+      "max": 6.510819911956787
+    },
+    {
+      "name": "blocks.4.0._bn1",
+      "shape_chw": [
+        480,
+        15,
+        15
+      ],
+      "channels": [
+        394,
+        117,
+        354,
+        271,
+        414,
+        10,
+        22,
+        204
+      ],
+      "file": "feature_maps/layer_085.png",
+      "min": -12.380226135253906,
+      "max": 10.488178253173828
+    },
+    {
+      "name": "blocks.4.0._project_conv",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        37,
+        28,
+        56,
+        0,
+        67,
+        89,
+        19,
+        110
+      ],
+      "file": "feature_maps/layer_086.png",
+      "min": -24.130834579467773,
+      "max": 22.10242462158203
+    },
+    {
+      "name": "blocks.4.0._bn2",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        28,
+        89,
+        0,
+        67,
+        37,
+        13,
+        58,
+        19
+      ],
+      "file": "feature_maps/layer_087.png",
+      "min": -29.158655166625977,
+      "max": 28.184486389160156
+    },
+    {
+      "name": "blocks.4.0",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        28,
+        89,
+        0,
+        67,
+        37,
+        13,
+        58,
+        19
+      ],
+      "file": "feature_maps/layer_088.png",
+      "min": -29.158655166625977,
+      "max": 28.184486389160156
+    },
+    {
+      "name": "blocks.4.1._expand_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        261,
+        131,
+        436,
+        621,
+        430,
+        248,
+        515,
+        86
+      ],
+      "file": "feature_maps/layer_089.png",
+      "min": -26.153711318969727,
+      "max": 25.5639705657959
+    },
+    {
+      "name": "blocks.4.1._bn0",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        607,
+        264,
+        84,
+        617,
+        359,
+        480,
+        499,
+        513
+      ],
+      "file": "feature_maps/layer_090.png",
+      "min": -9.560468673706055,
+      "max": 9.50146484375
+    },
+    {
+      "name": "blocks.4.1._depthwise_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        607,
+        617,
+        643,
+        172,
+        480,
+        162,
+        48,
+        35
+      ],
+      "file": "feature_maps/layer_091.png",
+      "min": -5.644245147705078,
+      "max": 4.2460618019104
+    },
+    {
+      "name": "blocks.4.1._bn1",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        513,
+        216,
+        84,
+        86,
+        209,
+        103,
+        81,
+        262
+      ],
+      "file": "feature_maps/layer_092.png",
+      "min": -21.4998722076416,
+      "max": 13.759130477905273
+    },
+    {
+      "name": "blocks.4.1._project_conv",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        49,
+        8,
+        43,
+        76,
+        102,
+        103,
+        53,
+        41
+      ],
+      "file": "feature_maps/layer_093.png",
+      "min": -6.198185920715332,
+      "max": 6.287784576416016
+    },
+    {
+      "name": "blocks.4.1._bn2",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        49,
+        8,
+        76,
+        102,
+        43,
+        98,
+        41,
+        53
+      ],
+      "file": "feature_maps/layer_094.png",
+      "min": -19.150470733642578,
+      "max": 17.406171798706055
+    },
+    {
+      "name": "blocks.4.1",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        8,
+        49,
+        0,
+        28,
+        67,
+        89,
+        43,
+        37
+      ],
+      "file": "feature_maps/layer_095.png",
+      "min": -31.519947052001953,
+      "max": 28.743934631347656
+    },
+    {
+      "name": "blocks.4.2._expand_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        414,
+        574,
+        129,
+        450,
+        652,
+        378,
+        474,
+        271
+      ],
+      "file": "feature_maps/layer_096.png",
+      "min": -28.735851287841797,
+      "max": 28.78294563293457
+    },
+    {
+      "name": "blocks.4.2._bn0",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        649,
+        614,
+        619,
+        474,
+        652,
+        308,
+        371,
+        183
+      ],
+      "file": "feature_maps/layer_097.png",
+      "min": -8.299245834350586,
+      "max": 8.938759803771973
+    },
+    {
+      "name": "blocks.4.2._depthwise_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        614,
+        183,
+        652,
+        634,
+        371,
+        649,
+        447,
+        37
+      ],
+      "file": "feature_maps/layer_098.png",
+      "min": -3.696401596069336,
+      "max": 3.631617784500122
+    },
+    {
+      "name": "blocks.4.2._bn1",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        649,
+        590,
+        113,
+        629,
+        111,
+        367,
+        550,
+        243
+      ],
+      "file": "feature_maps/layer_099.png",
+      "min": -18.096817016601562,
+      "max": 12.28876781463623
+    },
+    {
+      "name": "blocks.4.2._project_conv",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        96,
+        8,
+        49,
+        36,
+        7,
+        44,
+        76,
+        2
+      ],
+      "file": "feature_maps/layer_100.png",
+      "min": -5.757665634155273,
+      "max": 6.490584373474121
+    },
+    {
+      "name": "blocks.4.2._bn2",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        49,
+        8,
+        96,
+        44,
+        2,
+        76,
+        7,
+        41
+      ],
+      "file": "feature_maps/layer_101.png",
+      "min": -15.15062141418457,
+      "max": 21.044147491455078
+    },
+    {
+      "name": "blocks.4.2",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        8,
+        49,
+        43,
+        44,
+        0,
+        67,
+        28,
+        89
+      ],
+      "file": "feature_maps/layer_102.png",
+      "min": -35.60972595214844,
+      "max": 38.99871063232422
+    },
+    {
+      "name": "blocks.4.3._expand_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        309,
+        583,
+        629,
+        411,
+        405,
+        84,
+        103,
+        552
+      ],
+      "file": "feature_maps/layer_103.png",
+      "min": -36.692039489746094,
+      "max": 34.882110595703125
+    },
+    {
+      "name": "blocks.4.3._bn0",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        539,
+        212,
+        474,
+        635,
+        405,
+        10,
+        433,
+        579
+      ],
+      "file": "feature_maps/layer_104.png",
+      "min": -7.647889137268066,
+      "max": 7.9202880859375
+    },
+    {
+      "name": "blocks.4.3._depthwise_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        442,
+        410,
+        18,
+        610,
+        474,
+        112,
+        505,
+        553
+      ],
+      "file": "feature_maps/layer_105.png",
+      "min": -3.809427499771118,
+      "max": 3.0529448986053467
+    },
+    {
+      "name": "blocks.4.3._bn1",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        207,
+        320,
+        498,
+        255,
+        433,
+        395,
+        442,
+        180
+      ],
+      "file": "feature_maps/layer_106.png",
+      "min": -20.68573760986328,
+      "max": 16.422426223754883
+    },
+    {
+      "name": "blocks.4.3._project_conv",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        49,
+        22,
+        44,
+        102,
+        2,
+        8,
+        21,
+        78
+      ],
+      "file": "feature_maps/layer_107.png",
+      "min": -6.436135292053223,
+      "max": 6.106997013092041
+    },
+    {
+      "name": "blocks.4.3._bn2",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        49,
+        44,
+        102,
+        2,
+        8,
+        22,
+        98,
+        20
+      ],
+      "file": "feature_maps/layer_108.png",
+      "min": -15.29297924041748,
+      "max": 18.060901641845703
+    },
+    {
+      "name": "blocks.4.3",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        8,
+        44,
+        49,
+        43,
+        103,
+        82,
+        36,
+        22
+      ],
+      "file": "feature_maps/layer_109.png",
+      "min": -43.65267562866211,
+      "max": 50.36467742919922
+    },
+    {
+      "name": "Stage 5",
+      "shape_chw": [
+        112,
+        15,
+        15
+      ],
+      "channels": [
+        8,
+        44,
+        49,
+        43,
+        103,
+        82,
+        36,
+        22
+      ],
+      "file": "feature_maps/layer_110.png",
+      "min": -43.65267562866211,
+      "max": 50.36467742919922
+    },
+    {
+      "name": "blocks.5.0._expand_conv",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        625,
+        342,
+        31,
+        567,
+        511,
+        600,
+        131,
+        438
+      ],
+      "file": "feature_maps/layer_111.png",
+      "min": -72.13023376464844,
+      "max": 58.02757263183594
+    },
+    {
+      "name": "blocks.5.0._bn0",
+      "shape_chw": [
+        672,
+        15,
+        15
+      ],
+      "channels": [
+        567,
+        624,
+        470,
+        297,
+        102,
+        349,
+        511,
+        180
+      ],
+      "file": "feature_maps/layer_112.png",
+      "min": -11.72756576538086,
+      "max": 11.321589469909668
+    },
+    {
+      "name": "blocks.5.0._depthwise_conv",
+      "shape_chw": [
+        672,
+        8,
+        8
+      ],
+      "channels": [
+        547,
+        567,
+        297,
+        461,
+        214,
+        624,
+        389,
+        32
+      ],
+      "file": "feature_maps/layer_113.png",
+      "min": -9.487308502197266,
+      "max": 10.359829902648926
+    },
+    {
+      "name": "blocks.5.0._bn1",
+      "shape_chw": [
+        672,
+        8,
+        8
+      ],
+      "channels": [
+        504,
+        567,
+        394,
+        479,
+        294,
+        32,
+        369,
+        308
+      ],
+      "file": "feature_maps/layer_114.png",
+      "min": -10.175498008728027,
+      "max": 19.173551559448242
+    },
+    {
+      "name": "blocks.5.0._project_conv",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        114,
+        168,
+        73,
+        128,
+        157,
+        40,
+        92,
+        125
+      ],
+      "file": "feature_maps/layer_115.png",
+      "min": -20.498676300048828,
+      "max": 15.559015274047852
+    },
+    {
+      "name": "blocks.5.0._bn2",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        42,
+        75,
+        99,
+        36,
+        154,
+        168,
+        114,
+        92
+      ],
+      "file": "feature_maps/layer_116.png",
+      "min": -25.40781593322754,
+      "max": 22.720874786376953
+    },
+    {
+      "name": "blocks.5.0",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        42,
+        75,
+        99,
+        36,
+        154,
+        168,
+        114,
+        92
+      ],
+      "file": "feature_maps/layer_117.png",
+      "min": -25.40781593322754,
+      "max": 22.720874786376953
+    },
+    {
+      "name": "blocks.5.1._expand_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        157,
+        398,
+        92,
+        975,
+        1135,
+        632,
+        1069,
+        1054
+      ],
+      "file": "feature_maps/layer_118.png",
+      "min": -29.180160522460938,
+      "max": 39.497352600097656
+    },
+    {
+      "name": "blocks.5.1._bn0",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        92,
+        399,
+        682,
+        1088,
+        957,
+        779,
+        623,
+        398
+      ],
+      "file": "feature_maps/layer_119.png",
+      "min": -10.998088836669922,
+      "max": 14.020007133483887
+    },
+    {
+      "name": "blocks.5.1._depthwise_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        1101,
+        157,
+        1088,
+        926,
+        399,
+        957,
+        1128,
+        1137
+      ],
+      "file": "feature_maps/layer_120.png",
+      "min": -7.336833477020264,
+      "max": 3.6004693508148193
+    },
+    {
+      "name": "blocks.5.1._bn1",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        94,
+        463,
+        511,
+        975,
+        605,
+        89,
+        820,
+        1101
+      ],
+      "file": "feature_maps/layer_121.png",
+      "min": -22.301897048950195,
+      "max": 16.857666015625
+    },
+    {
+      "name": "blocks.5.1._project_conv",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        145,
+        110,
+        186,
+        115,
+        176,
+        174,
+        70
+      ],
+      "file": "feature_maps/layer_122.png",
+      "min": -5.624962329864502,
+      "max": 6.065922737121582
+    },
+    {
+      "name": "blocks.5.1._bn2",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        110,
+        145,
+        161,
+        115,
+        186,
+        70,
+        176
+      ],
+      "file": "feature_maps/layer_123.png",
+      "min": -16.647037506103516,
+      "max": 16.057838439941406
+    },
+    {
+      "name": "blocks.5.1",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        110,
+        99,
+        42,
+        36,
+        75,
+        86,
+        87,
+        30
+      ],
+      "file": "feature_maps/layer_124.png",
+      "min": -26.85061264038086,
+      "max": 25.101806640625
+    },
+    {
+      "name": "blocks.5.2._expand_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        1056,
+        493,
+        43,
+        392,
+        182,
+        411,
+        550,
+        895
+      ],
+      "file": "feature_maps/layer_125.png",
+      "min": -39.826812744140625,
+      "max": 33.56057357788086
+    },
+    {
+      "name": "blocks.5.2._bn0",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        873,
+        917,
+        730,
+        391,
+        614,
+        411,
+        515,
+        389
+      ],
+      "file": "feature_maps/layer_126.png",
+      "min": -8.343321800231934,
+      "max": 13.429858207702637
+    },
+    {
+      "name": "blocks.5.2._depthwise_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        917,
+        615,
+        840,
+        873,
+        34,
+        440,
+        43,
+        1151
+      ],
+      "file": "feature_maps/layer_127.png",
+      "min": -5.556033611297607,
+      "max": 2.7094767093658447
+    },
+    {
+      "name": "blocks.5.2._bn1",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        34,
+        707,
+        917,
+        1151,
+        28,
+        440,
+        712,
+        895
+      ],
+      "file": "feature_maps/layer_128.png",
+      "min": -17.530122756958008,
+      "max": 11.960275650024414
+    },
+    {
+      "name": "blocks.5.2._project_conv",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        191,
+        87,
+        115,
+        185,
+        190,
+        39,
+        4,
+        136
+      ],
+      "file": "feature_maps/layer_129.png",
+      "min": -3.667174816131592,
+      "max": 4.876317024230957
+    },
+    {
+      "name": "blocks.5.2._bn2",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        185,
+        115,
+        26,
+        10,
+        136,
+        81,
+        134
+      ],
+      "file": "feature_maps/layer_130.png",
+      "min": -12.559503555297852,
+      "max": 13.177469253540039
+    },
+    {
+      "name": "blocks.5.2",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        110,
+        99,
+        42,
+        86,
+        75,
+        2,
+        162
+      ],
+      "file": "feature_maps/layer_131.png",
+      "min": -28.07801628112793,
+      "max": 27.748058319091797
+    },
+    {
+      "name": "blocks.5.3._expand_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        81,
+        1018,
+        240,
+        732,
+        429,
+        1084,
+        1108,
+        926
+      ],
+      "file": "feature_maps/layer_132.png",
+      "min": -48.86331558227539,
+      "max": 35.141937255859375
+    },
+    {
+      "name": "blocks.5.3._bn0",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        326,
+        610,
+        292,
+        117,
+        590,
+        1126,
+        353,
+        787
+      ],
+      "file": "feature_maps/layer_133.png",
+      "min": -9.511075019836426,
+      "max": 8.033531188964844
+    },
+    {
+      "name": "blocks.5.3._depthwise_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        292,
+        590,
+        787,
+        326,
+        532,
+        785,
+        819,
+        98
+      ],
+      "file": "feature_maps/layer_134.png",
+      "min": -4.700171947479248,
+      "max": 2.512906789779663
+    },
+    {
+      "name": "blocks.5.3._bn1",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        201,
+        988,
+        98,
+        590,
+        174,
+        326,
+        292,
+        166
+      ],
+      "file": "feature_maps/layer_135.png",
+      "min": -12.947835922241211,
+      "max": 12.312255859375
+    },
+    {
+      "name": "blocks.5.3._project_conv",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        162,
+        144,
+        35,
+        103,
+        141,
+        0,
+        66,
+        98
+      ],
+      "file": "feature_maps/layer_136.png",
+      "min": -2.9510247707366943,
+      "max": 3.7440831661224365
+    },
+    {
+      "name": "blocks.5.3._bn2",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        66,
+        162,
+        141,
+        103,
+        87,
+        144,
+        35,
+        0
+      ],
+      "file": "feature_maps/layer_137.png",
+      "min": -12.179871559143066,
+      "max": 9.751977920532227
+    },
+    {
+      "name": "blocks.5.3",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        99,
+        42,
+        162,
+        86,
+        35,
+        45,
+        110
+      ],
+      "file": "feature_maps/layer_138.png",
+      "min": -33.08049011230469,
+      "max": 31.19369888305664
+    },
+    {
+      "name": "blocks.5.4._expand_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        721,
+        809,
+        354,
+        535,
+        786,
+        783,
+        1120,
+        213
+      ],
+      "file": "feature_maps/layer_139.png",
+      "min": -47.668270111083984,
+      "max": 30.817157745361328
+    },
+    {
+      "name": "blocks.5.4._bn0",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        881,
+        76,
+        1005,
+        365,
+        721,
+        704,
+        1059,
+        406
+      ],
+      "file": "feature_maps/layer_140.png",
+      "min": -9.426511764526367,
+      "max": 9.760831832885742
+    },
+    {
+      "name": "blocks.5.4._depthwise_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        76,
+        822,
+        463,
+        1094,
+        881,
+        1059,
+        639,
+        785
+      ],
+      "file": "feature_maps/layer_141.png",
+      "min": -5.463665962219238,
+      "max": 2.4949545860290527
+    },
+    {
+      "name": "blocks.5.4._bn1",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        1094,
+        930,
+        1098,
+        76,
+        1132,
+        265,
+        1074,
+        514
+      ],
+      "file": "feature_maps/layer_142.png",
+      "min": -12.8047456741333,
+      "max": 5.685345649719238
+    },
+    {
+      "name": "blocks.5.4._project_conv",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        131,
+        139,
+        135,
+        46,
+        45,
+        124,
+        26,
+        142
+      ],
+      "file": "feature_maps/layer_143.png",
+      "min": -2.4616963863372803,
+      "max": 3.073122024536133
+    },
+    {
+      "name": "blocks.5.4._bn2",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        139,
+        26,
+        131,
+        161,
+        81,
+        46,
+        110,
+        184
+      ],
+      "file": "feature_maps/layer_144.png",
+      "min": -11.745598793029785,
+      "max": 13.133753776550293
+    },
+    {
+      "name": "blocks.5.4",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        42,
+        99,
+        45,
+        131,
+        75,
+        86,
+        35
+      ],
+      "file": "feature_maps/layer_145.png",
+      "min": -35.22837829589844,
+      "max": 35.40402603149414
+    },
+    {
+      "name": "Stage 6",
+      "shape_chw": [
+        192,
+        8,
+        8
+      ],
+      "channels": [
+        87,
+        42,
+        99,
+        45,
+        131,
+        75,
+        86,
+        35
+      ],
+      "file": "feature_maps/layer_146.png",
+      "min": -35.22837829589844,
+      "max": 35.40402603149414
+    },
+    {
+      "name": "blocks.6.0._expand_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        554,
+        888,
+        666,
+        447,
+        545,
+        750,
+        194,
+        1002
+      ],
+      "file": "feature_maps/layer_147.png",
+      "min": -58.5685920715332,
+      "max": 49.306182861328125
+    },
+    {
+      "name": "blocks.6.0._bn0",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        643,
+        1124,
+        578,
+        666,
+        10,
+        888,
+        389,
+        222
+      ],
+      "file": "feature_maps/layer_148.png",
+      "min": -12.328192710876465,
+      "max": 13.792241096496582
+    },
+    {
+      "name": "blocks.6.0._depthwise_conv",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        643,
+        666,
+        554,
+        940,
+        510,
+        1009,
+        1124,
+        348
+      ],
+      "file": "feature_maps/layer_149.png",
+      "min": -5.644930839538574,
+      "max": 5.617987632751465
+    },
+    {
+      "name": "blocks.6.0._bn1",
+      "shape_chw": [
+        1152,
+        8,
+        8
+      ],
+      "channels": [
+        888,
+        284,
+        890,
+        35,
+        557,
+        1040,
+        247,
+        1109
+      ],
+      "file": "feature_maps/layer_150.png",
+      "min": -12.6568021774292,
+      "max": 20.78447151184082
+    },
+    {
+      "name": "blocks.6.0._project_conv",
+      "shape_chw": [
+        320,
+        8,
+        8
+      ],
+      "channels": [
+        258,
+        164,
+        152,
+        147,
+        268,
+        172,
+        122,
+        159
+      ],
+      "file": "feature_maps/layer_151.png",
+      "min": -15.213125228881836,
+      "max": 21.132627487182617
+    },
+    {
+      "name": "blocks.6.0._bn2",
+      "shape_chw": [
+        320,
+        8,
+        8
+      ],
+      "channels": [
+        258,
+        164,
+        152,
+        268,
+        147,
+        110,
+        163,
+        122
+      ],
+      "file": "feature_maps/layer_152.png",
+      "min": -13.56773567199707,
+      "max": 16.843170166015625
+    },
+    {
+      "name": "blocks.6.0",
+      "shape_chw": [
+        320,
+        8,
+        8
+      ],
+      "channels": [
+        258,
+        164,
+        152,
+        268,
+        147,
+        110,
+        163,
+        122
+      ],
+      "file": "feature_maps/layer_153.png",
+      "min": -13.56773567199707,
+      "max": 16.843170166015625
+    },
+    {
+      "name": "Stage 7",
+      "shape_chw": [
+        320,
+        8,
+        8
+      ],
+      "channels": [
+        258,
+        164,
+        152,
+        268,
+        147,
+        110,
+        163,
+        122
+      ],
+      "file": "feature_maps/layer_154.png",
+      "min": -13.56773567199707,
+      "max": 16.843170166015625
+    },
+    {
+      "name": "head.0",
+      "shape_chw": [
+        1280,
+        8,
+        8
+      ],
+      "channels": [
+        453,
+        428,
+        269,
+        204,
+        341,
+        252,
+        704,
+        473
+      ],
+      "file": "feature_maps/layer_155.png",
+      "min": -19.202720642089844,
+      "max": 19.927907943725586
+    },
+    {
+      "name": "head.1",
+      "shape_chw": [
+        1280,
+        8,
+        8
+      ],
+      "channels": [
+        204,
+        341,
+        642,
+        428,
+        704,
+        453,
+        269,
+        410
+      ],
+      "file": "feature_maps/layer_156.png",
+      "min": -27.399477005004883,
+      "max": 17.25685691833496
+    },
+    {
+      "name": "Head",
+      "shape_chw": [
+        1280,
+        8,
+        8
+      ],
+      "channels": [
+        453,
+        410,
+        1225,
+        582,
+        840,
+        867,
+        192,
+        204
+      ],
+      "file": "feature_maps/layer_157.png",
+      "min": 0.0,
+      "max": 6.0
+    }
+  ],
+  "channel_selection": "descending spatial variance; zero-based indices; per-channel min-max grayscale",
+  "top_predictions": [
+    {
+      "class_id": 283,
+      "label": "class_283",
+      "logit": 6.944316387176514,
+      "probability": 0.44515761733055115
+    },
+    {
+      "class_id": 287,
+      "label": "class_287",
+      "logit": 3.4674594402313232,
+      "probability": 0.01375732570886612
+    },
+    {
+      "class_id": 281,
+      "label": "class_281",
+      "logit": 3.275022029876709,
+      "probability": 0.011349049396812916
+    },
+    {
+      "class_id": 782,
+      "label": "class_782",
+      "logit": 2.7605690956115723,
+      "probability": 0.006784774828702211
+    },
+    {
+      "class_id": 664,
+      "label": "class_664",
+      "logit": 2.751997947692871,
+      "probability": 0.006726870313286781
+    }
+  ]
+}
